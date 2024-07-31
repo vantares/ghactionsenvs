@@ -27,7 +27,7 @@ jobs:
       name: staging
       url: ${{ steps.step_name.outputs.url_output }} # optional
     steps:
-      - run: echo "🎉 ${{ secret.DEPLOY_URL }} event."
+      - run: echo "🎉 ${{ secrets.DEPLOY_URL }} event."
 
   deploy-production:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
       name: production
       url: ${{ steps.step_name.outputs.url_output }} # optional
     steps:
-      - run: echo "🎉 ${{ secret.DEPLOY_URL }} event."
+      - run: echo "🎉 ${{ secrets.DEPLOY_URL }} event."
   deploy-testing:
     runs-on: ubuntu-latest
 
@@ -44,4 +44,4 @@ jobs:
       name: testing
       url: ${{ steps.step_name.outputs.url_output }} # optional
     steps:
-      - run: echo "🎉 ${{ secret.DEPLOY_URL }} event."
+      - run: echo "🎉 ${{ secrets.DEPLOY_URL }} event."
