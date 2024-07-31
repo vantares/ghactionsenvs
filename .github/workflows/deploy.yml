@@ -1,0 +1,46 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+  # This workflow contains a single job called/with ID "deploy-preview"
+  deploy-staging:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # The environment this job references
+    environment:
+      name: staging
+      url: ${{ steps.step_name.outputs.url_output }} # optional
+    steps:
+      - run: echo "🎉 ${{ secret.DEPLOY_URL }} event."
+  deploy-production:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: production
+      url: ${{ steps.step_name.outputs.url_output }} # optional
+    steps:
+      - run: echo "🎉 ${{ secret.DEPLOY_URL }} event."
+  deploy-testing:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: testing
+      url: ${{ steps.step_name.outputs.url_output }} # optional
+    steps:
+      - run: echo "🎉 ${{ secret.DEPLOY_URL }} event."
