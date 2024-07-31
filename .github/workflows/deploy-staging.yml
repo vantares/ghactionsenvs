@@ -10,8 +10,9 @@ jobs:
 
     # The environment this job references
     environment:
-      name: "${{ env.stageneme }}"
+      name: ${ env.stagename }
       url: ${{ steps.step_name.outputs.url_output }} # optional
     steps:
       - run: echo "🎉 ${{ secrets.DEPLOY_URL }} secret from gh environment."
       - run: echo "🎉 ${{ vars.STAGE_NAME }} variable from gh environment."
+      - run: echo "🎉 ${{ env.stagename }} stage name."
