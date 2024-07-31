@@ -1,8 +1,6 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
-env:
-  stagename: "staging"
 jobs:
   deploy-staging:
     # The type of runner that the job will run on
@@ -10,10 +8,8 @@ jobs:
 
     # The environment this job references
     environment:
-      # name: ${ env.stagename }
       name: "production"
       url: ${{ steps.step_name.outputs.url_output }} # optional
     steps:
       - run: echo "🎉 ${{ secrets.DEPLOY_URL }} secret from gh environment."
       - run: echo "🎉 ${{ vars.STAGE_NAME }} variable from gh environment."
-      - run: echo "🎉 ${{ env.stagename }} stage name."
