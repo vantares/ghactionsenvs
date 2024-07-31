@@ -12,3 +12,4 @@ jobs:
       url: ${{ steps.step_name.outputs.url_output }} # optional
     steps:
       - run: echo "🎉 ${{ secrets.DEPLOY_URL }} event."
+      - run: echo "🎉 ${{ vars.STAGE_NAME }} stage."
