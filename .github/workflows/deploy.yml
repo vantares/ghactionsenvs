@@ -28,6 +28,7 @@ jobs:
       url: ${{ steps.step_name.outputs.url_output }} # optional
     steps:
       - run: echo "🎉 ${{ secret.DEPLOY_URL }} event."
+
   deploy-production:
     runs-on: ubuntu-latest
 

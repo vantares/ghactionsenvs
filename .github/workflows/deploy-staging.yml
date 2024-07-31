@@ -1,0 +1,14 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  deploy-staging:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # The environment this job references
+    environment:
+      name: staging
+      url: ${{ steps.step_name.outputs.url_output }} # optional
+    steps:
+      - run: echo "🎉 ${{ secret.DEPLOY_URL }} event."
